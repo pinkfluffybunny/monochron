@@ -31,6 +31,9 @@ volatile uint8_t timeoutcounter = 0;
 
 volatile uint8_t screenmutex = 0;
 
+void print_date(uint8_t month, uint8_t day, uint8_t year, uint8_t mode);
+void print_region_setting(uint8_t inverted);
+
 void display_menu(void) {
   DEBUGP("display menu");
   

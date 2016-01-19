@@ -41,8 +41,9 @@ EXTRAINCDIRS =
 #    -ahlms:  create assembler listing
 CFLAGS = -g -O$(OPT) \
 -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums \
--Wall -Wstrict-prototypes \
+-Wall -Wstrict-prototypes -Werror \
 -DF_CPU=$(F_CPU) \
+-D__DELAY_BACKWARD_COMPATIBLE__ \
 -Wa,-adhlns=$(<:.c=.lst) \
 $(patsubst %,-I%,$(EXTRAINCDIRS))
 

@@ -58,7 +58,10 @@ void encipher(void) {  // Using 32 rounds of XTea encryption as a PRNG.
   rval[0]=v0; rval[1]=v1;
 }
 
-void init_crand() {
+void draw_score(uint8_t redraw_digits, uint8_t inverted);
+void drawbigfont(uint8_t x, uint8_t y, uint8_t n, uint8_t inverted);
+
+void init_crand(void) {
   uint32_t temp;
   key[0]=0x2DE9716E;  //Initial XTEA key. Grabbed from the first 16 bytes
   key[1]=0x993FDDD1;  //of grc.com/password.  1 in 2^128 chance of seeing
@@ -109,7 +112,7 @@ uint16_t crand(uint8_t type) {
     return (rval[0]^rval[1])&RAND_MAX;
   } else if (type==1) {
   	return ((rval[0]^rval[1])>>15)&3;
-  } else if (type==2) {
+  } else { // if (type==2) {
   	return ((rval[0]^rval[1])>>17)&1;
   }
 }
