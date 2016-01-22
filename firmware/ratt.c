@@ -1,3 +1,10 @@
+/* ***************************************************************************
+// ratt.c - the time, init and main loop
+// This code is distributed under the GNU Public License
+//		which can be found at http://www.gnu.org/licenses/gpl.txt
+//
+**************************************************************************** */
+
 #include <avr/io.h>      // this contains all the IO port definitions
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -93,13 +100,11 @@ void init_eeprom(void) {	//Set eeprom to a default state.
 
 int main(void) {
   uint8_t inverted = 0;
-  uint8_t mcustate;
   uint8_t display_date = 0;
 
-  // check if we were reset
-  mcustate = MCUSR;
+  // Clear the watchdog reset flag, just in case.
   MCUSR = 0;
-  
+
   //Just in case we were reset inside of the glcd init function
   //which would happen if the lcd is not plugged in. The end result
   //of that, is it will beep, pause, for as long as there is no lcd
@@ -312,7 +317,7 @@ int main(void) {
 	initdisplay(0);
       } else {
 	PORTB |= _BV(5);
-	drawdisplay(inverted);
+	drawdisplay();
 	PORTB &= ~_BV(5);
       }
     }

@@ -1,3 +1,10 @@
+/* ***************************************************************************
+// config.c - the configuration menu handling
+// This code is distributed under the GNU Public License
+//		which can be found at http://www.gnu.org/licenses/gpl.txt
+//
+**************************************************************************** */
+
 #include <avr/io.h>      // this contains all the IO port definitions
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -23,6 +30,9 @@ extern volatile uint8_t displaymode;
 volatile uint8_t timeoutcounter = 0;
 
 volatile uint8_t screenmutex = 0;
+
+void print_date(uint8_t month, uint8_t day, uint8_t year, uint8_t mode);
+void print_region_setting(uint8_t inverted);
 
 void display_menu(void) {
   DEBUGP("display menu");
