@@ -42,8 +42,8 @@ extern const uint8_t zero_seg[];
 extern const uint8_t one_seg[];
 
 // special pointer for reading from ROM memory
-PGM_P zero_p PROGMEM = zero_seg;
-PGM_P one_p PROGMEM = one_seg;
+PGM_P const zero_p PROGMEM = (PGM_P )zero_seg;
+PGM_P const one_p PROGMEM = (PGM_P )one_seg;
 
 
 uint8_t steps = 0;

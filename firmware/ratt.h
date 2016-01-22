@@ -152,6 +152,7 @@ void initdisplay(uint8_t inverted);
 void step(void);
 void setscore(void);
 void draw(uint8_t inverted);
+void drawdots(uint8_t inverted);
 
 void set_alarm(void);
 void set_time(void);
