@@ -39,11 +39,9 @@ uint8_t redraw_time = 0;
 uint8_t last_score_mode = 0;
 
 extern const uint8_t zero_seg[];
-extern const uint8_t one_seg[];
 
 // special pointer for reading from ROM memory
 PGM_P const zero_p PROGMEM = (PGM_P )zero_seg;
-PGM_P const one_p PROGMEM = (PGM_P )one_seg;
 
 
 uint8_t steps = 0;
